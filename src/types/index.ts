@@ -14,6 +14,7 @@ export type Asset = {
   locationId: string | null;
   name: string;
   parentId: string | null;
+  status: "alert" | "operating";
 };
 
 export type Component = {
@@ -21,7 +22,7 @@ export type Component = {
   locationId: string | null;
   name: string;
   parentId: string | null;
-  sensorType: string;
+  sensorType: "energy" | "vibration";
   status: "alert" | "operating";
   gatewayId: string;
 };

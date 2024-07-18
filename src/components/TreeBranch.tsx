@@ -1,18 +1,28 @@
 import { TreeItem } from "@/types";
 import styles from "./TreeBranch.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TreeBranchPill } from "./TreeBranchPill";
 
 export const TreeBranch = ({
   item,
   selectedItems,
   level = 0,
+  searchActive,
 }: {
   item: TreeItem;
   level?: number;
   selectedItems: string[];
+  searchActive: boolean;
 }) => {
   const [showChildren, setShowChildren] = useState(false);
+
+  useEffect(() => {
+    if (showChildren) return;
+    if (!searchActive) return;
+    if (!selectedItems.includes(item.id)) return;
+
+    setShowChildren(true);
+  }, [showChildren, selectedItems, item]);
 
   if (selectedItems.length > 0 && !selectedItems.includes(item.id)) {
     return null;
@@ -35,6 +45,7 @@ export const TreeBranch = ({
               item={child}
               level={level + 1}
               selectedItems={selectedItems}
+              searchActive={searchActive}
             />
           ))}
         </ul>

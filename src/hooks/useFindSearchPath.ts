@@ -1,16 +1,27 @@
-import { Asset, Location, Component } from "@/types";
-import { useCallback, useEffect, useMemo } from "react";
+import { Asset, Location, Component, TreeItem } from "@/types";
+import { useCallback, useMemo } from "react";
 
 export const useFindSearchPath = ({
   data,
   searchQuery,
+  activeFilters,
 }: {
   searchQuery: string;
   data: Array<Location | Asset | Component>;
+  activeFilters: Array<(item: TreeItem) => boolean>;
 }) => {
-  const matchingItems = data.filter((item) => {
-    return item.name.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  const matchingItems = () => {
+    return data.filter((item) => {
+      if (activeFilters.length === 0) {
+        return item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      }
+
+      return (
+        activeFilters.every((filter) => filter(item as TreeItem)) &&
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
+  };
 
   const getAllInPath = useCallback(
     (item: Location | Asset | Component, accumulator: Array<string>) => {
@@ -36,7 +47,9 @@ export const useFindSearchPath = ({
   );
 
   const selectedItems = useMemo(() => {
-    return matchingItems.map((item) => getAllInPath(item, [])).flat();
+    return matchingItems()
+      .map((item) => getAllInPath(item, []))
+      .flat();
   }, [matchingItems]);
 
   return { selectedItems } as const;

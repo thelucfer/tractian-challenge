@@ -13,3 +13,17 @@
     max-height: 1rem;
   }
 }
+
+.critical {
+  &:before {
+    content: "•";
+    color: red;
+  }
+}
+
+.energy {
+  &:after {
+    content: "ϟ";
+    color: var(--color-primary-variant);
+  }
+}

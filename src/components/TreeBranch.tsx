@@ -5,12 +5,18 @@ import { TreeBranchPill } from "./TreeBranchPill";
 
 export const TreeBranch = ({
   item,
+  selectedItems,
   level = 0,
 }: {
   item: TreeItem;
   level?: number;
+  selectedItems: string[];
 }) => {
   const [showChildren, setShowChildren] = useState(false);
+
+  if (selectedItems.length > 0 && !selectedItems.includes(item.id)) {
+    return null;
+  }
 
   return (
     <div
@@ -24,7 +30,12 @@ export const TreeBranch = ({
       {!!item.children && item.children.length > 0 && showChildren && (
         <ul>
           {item.children.map((child) => (
-            <TreeBranch key={child.id} item={child} level={level + 1} />
+            <TreeBranch
+              key={child.id}
+              item={child}
+              level={level + 1}
+              selectedItems={selectedItems}
+            />
           ))}
         </ul>
       )}

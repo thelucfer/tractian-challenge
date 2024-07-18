@@ -6,8 +6,6 @@ import { isAsset, isLocation } from "@/utils";
 
 export const TreeItemIcon = ({ item }: { item: TreeItem }) => {
   if (isLocation(item)) {
-    console.log("console.log", item.name);
-
     return <img src={locationIcon} alt="location icon" />;
   }
 

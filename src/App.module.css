@@ -2,8 +2,18 @@
   background: var(--color-background);
   margin: 0.5rem;
   border-radius: 4px;
+
+  overflow: hidden;
+
+  display: grid;
 }
 
 .footer {
-  background: var(--color-primary);
+  background: var(--color-tertiary);
+  color: var(--color-foreground-variant);
+  place-items: center;
+  display: grid;
+
+  padding: 0.5rem;
+  font-size: 0.5rem;
 }

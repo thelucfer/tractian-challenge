@@ -1,0 +1,15 @@
+.pill {
+  display: flex;
+  place-items: center;
+
+  gap: 0.25rem;
+  padding: 0.25rem;
+
+  background: transparent;
+
+  font-family: var(--font-secondary);
+
+  & img {
+    max-height: 1rem;
+  }
+}

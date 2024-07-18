@@ -1,5 +1,14 @@
 .wrapper {
   display: grid;
+
+  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(3, 1fr);
+
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+
+  overflow: hidden;
 }
 
 .loadingWrapper {
@@ -7,4 +16,28 @@
   place-items: center;
   place-content: center;
   height: 100%;
+
+  place-self: center;
+}
+
+.header {
+  grid-column: 1 / span all;
+  grid-row: 1 / span 1;
+
+  padding-block: 0 1rem;
+}
+.title {
+  display: flex;
+  place-items: center;
+  gap: 0.25rem;
+}
+
+.baseTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.subTitle {
+  font-size: 0.875rem;
+  font-weight: 400;
 }

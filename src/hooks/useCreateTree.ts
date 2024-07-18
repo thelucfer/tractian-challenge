@@ -36,8 +36,7 @@ export const useCreateTree = ({
     };
 
     return topLevelItems.map((item) => ({
-      id: item.id,
-      name: item.name,
+      ...item,
       children: getChildren(item.id, items),
     }));
   };

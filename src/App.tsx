@@ -10,7 +10,7 @@ export const App = () => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <footer className={styles.footer}>footer</footer>
+      <footer className={styles.footer}>made by @thelucfer</footer>
     </>
   );
 };

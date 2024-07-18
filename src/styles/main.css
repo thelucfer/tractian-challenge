@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;0,900;1,400&family=Open+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
+@import "reset.css";
+
+:root {
+  --color-primary: #023b78;
+  --color-primary-variant: #2188ff;
+
+  --color-secondary: hsl(183 60% 49%);
+  --color-secondary-variant: hsl(183 60% 69%);
+
+  --color-tertiary: #17192d;
+
+  --color-background: #ffffff;
+  --color-surface: #d8dfe6;
+
+  --color-foreground: #17192d;
+  --color-foreground-variant: #ffffff;
+
+  --color-contrast: #ffbd00;
+  --color-contrast-variant: #ec9ded;
+
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Barlow", sans-serif;
+}
+
+/* body */
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+
+  color: var(--color-foreground);
+  background: var(--color-surface);
+
+  & #root {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar-track {
+  background-color: var(--color-background);
+}
+
+::-webkit-scrollbar {
+  background-color: var(--color-background);
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
+::-webkit-scrollbar-button {
+  background-color: var(--color-primary-variant);
+}

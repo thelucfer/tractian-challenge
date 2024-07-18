@@ -1,0 +1,10 @@
+.wrapper {
+  display: grid;
+}
+
+.loadingWrapper {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  height: 100%;
+}

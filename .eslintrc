@@ -1,0 +1,17 @@
+{
+  "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        // The default grouping, but with no blank lines.
+        "groups": [["^\\u0000", "^node:", "^@?\\w", "^", "^\\."]]
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "react-hooks/exhaustive-deps": "error",
+    "no-console": "warn"
+  }
+}

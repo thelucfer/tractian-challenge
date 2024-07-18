@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+}
+
+.pill {
+  display: flex;
+  place-items: center;
+
+  gap: 0.25rem;
+
+  & img {
+    max-height: 1rem;
+  }
+}

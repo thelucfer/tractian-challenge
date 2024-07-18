@@ -1,0 +1,9 @@
+.main {
+  background: var(--color-background);
+  margin: 0.5rem;
+  border-radius: 4px;
+}
+
+.footer {
+  background: var(--color-primary);
+}

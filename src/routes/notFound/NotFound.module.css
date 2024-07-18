@@ -1,0 +1,28 @@
+.wrapper {
+  display: grid;
+
+  place-items: start;
+  place-content: center;
+
+  gap: 1rem;
+
+  height: 100%;
+}
+
+.link {
+  &:before {
+    content: "<";
+  }
+
+  display: flex;
+  gap: 0.25rem;
+
+  background: var(--color-primary);
+  color: var(--color-foreground-variant);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.05);
+
+  place-self: end;
+}

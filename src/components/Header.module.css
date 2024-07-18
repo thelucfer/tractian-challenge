@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+
+  padding: 1rem;
+  background: var(--color-foreground);
+  place-items: center;
+
+  justify-content: space-between;
+}
+
+.logo {
+  max-width: 102.95px;
+}
+
+.nav {
+  display: grid;
+}
+
+.linksList {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  font-family: var(--font-primary);
+  background: var(--color-primary);
+  color: var(--color-foreground-variant);
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  gap: 0.25rem;
+}
+
+.linkActive {
+  composes: link;
+
+  background: var(--color-primary-variant);
+}

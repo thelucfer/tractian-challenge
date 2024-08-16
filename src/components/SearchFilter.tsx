@@ -2,14 +2,20 @@ import { useStore } from "@/state";
 import styles from "./SearchFilter.module.css";
 import { ActiveFilters } from "@/types";
 
-export const SearchFilter = ({ filter }: { filter: ActiveFilters[number] }) => {
+export const SearchFilter = ({
+  filter,
+  text,
+}: {
+  filter: ActiveFilters[number];
+  text: string;
+}) => {
   const activeFilters = useStore((state) => state.activeFilters);
   const setActiveFilters = useStore((state) => state.setActiveFilters);
 
   const toggleActiveFilter = () => {
     setActiveFilters((prev) => {
-      if (prev.includes(filter)) {
-        return prev.filter((f) => f !== filter);
+      if (prev.find((f) => f.filterKey === filter.filterKey)) {
+        return prev.filter((f) => f.filterKey !== filter.filterKey);
       }
 
       return [...prev, filter];
@@ -20,10 +26,10 @@ export const SearchFilter = ({ filter }: { filter: ActiveFilters[number] }) => {
     <label className={styles.filter}>
       <input
         type="checkbox"
-        checked={!!activeFilters.find((f) => f === filter)}
+        checked={!!activeFilters.find((f) => f.filterKey === filter.filterKey)}
         onChange={toggleActiveFilter}
       />
-      show only energy sensors
+      {text}
     </label>
   );
 };

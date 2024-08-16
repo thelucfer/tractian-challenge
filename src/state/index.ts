@@ -1,8 +1,8 @@
-import { ActiveFilters, TreeItem } from "@/types";
+import { ActiveFilters } from "@/types";
 import { create } from "zustand";
 
 type Store = {
-  activeFilters: Array<(item: TreeItem) => boolean>;
+  activeFilters: ActiveFilters;
   setActiveFilters: (
     callback: (filters: ActiveFilters) => ActiveFilters
   ) => void;

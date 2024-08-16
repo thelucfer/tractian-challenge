@@ -25,7 +25,7 @@ export const TreeContainer = ({ company }: { company: Company }) => {
   const { selectedItems } = useFindSearchPath({
     data: [...(locations ?? []), ...(assets ?? [])],
     searchQuery,
-    activeFilters,
+    activeFilters: activeFilters.map((f) => f.fn),
   });
 
   if (!tree) {
@@ -36,10 +36,18 @@ export const TreeContainer = ({ company }: { company: Company }) => {
     <aside className={styles.wrapper}>
       <div className={styles.filterWrapper}>
         <SearchFilter
-          filter={(item) => isComponent(item) && item.sensorType === "energy"}
+          filter={{
+            filterKey: "energy-sensors",
+            fn: (item) => isComponent(item) && item.sensorType === "energy",
+          }}
+          text="Show only energy sensors"
         />
         <SearchFilter
-          filter={(item) => "status" in item && item.status === "alert"}
+          filter={{
+            filterKey: "critical-status",
+            fn: (item) => "status" in item && item.status === "alert",
+          }}
+          text="Show only critical status"
         />
       </div>
 

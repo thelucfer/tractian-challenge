@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Navigate, useParams } from "react-router-dom";
 import styles from "./Company.module.css";
 import { TreeContainer } from "@/components/TreeContainer";
+import { CompanyHeader } from "./CompanyHeader";
 
 export const Company = () => {
   const { companyId } = useParams();
@@ -40,14 +41,7 @@ export const Company = () => {
 
   return (
     <div className={styles.wrapper}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>
-          <span className={styles.baseTitle}>Assets </span>
-          <span className={styles.subTitle}>
-            / {selectedCompany()!.name} unit
-          </span>
-        </h1>
-      </header>
+      <CompanyHeader selectedCompany={selectedCompany()!} />
 
       <TreeContainer company={selectedCompany()!} />
     </div>

@@ -30,3 +30,5 @@ export type Component = {
 export type TreeItem = (Asset | Component | Location) & {
   children: TreeItem[];
 };
+
+export type ActiveFilters = Array<(item: TreeItem) => boolean>;

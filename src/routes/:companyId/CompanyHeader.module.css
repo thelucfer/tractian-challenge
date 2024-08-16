@@ -1,0 +1,21 @@
+.header {
+  grid-column: 1 / span all;
+  grid-row: 1 / span 1;
+
+  padding-block: 0 1rem;
+}
+.title {
+  display: flex;
+  place-items: center;
+  gap: 0.25rem;
+}
+
+.baseTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.subTitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+}

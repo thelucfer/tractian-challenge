@@ -9,11 +9,11 @@ type Item = {
 };
 
 export const useCreateTree = ({
-  locations: _locations,
-  assets: _assets,
+  locations = [],
+  assets = [],
 }: {
-  locations: Location[];
-  assets: Asset[];
+  locations: Location[] | undefined;
+  assets: Asset[] | undefined;
 }) => {
   const assembleTree = (items: Array<Item>): TreeItem[] => {
     const topLevelItems = items.filter(
@@ -42,12 +42,12 @@ export const useCreateTree = ({
   };
 
   const tree = useMemo(() => {
-    if (_locations.length === 0 || _assets.length === 0) {
+    if (locations.length === 0 || assets.length === 0) {
       return null;
     }
 
-    return assembleTree([..._locations, ..._assets]);
-  }, [_locations, _assets]);
+    return assembleTree([...locations, ...assets]);
+  }, [locations, assets]);
 
   return { tree } as const;
 };
